@@ -1,5 +1,7 @@
 /**
- * Event.ts
+ * oni-types
+ *
+ * Common types used by Oni
  */
 
 import { EventEmitter } from "events"
@@ -20,7 +22,11 @@ import "rxjs/add/operator/switchMap"
 import "rxjs/add/operator/takeLast"
 import "rxjs/add/operator/withLatestFrom"
 
-import { IDisposable } from "./IDisposable"
+export interface IDisposable {
+    dispose(): void
+}
+
+export type DisposeFunction = () => void
 
 export type EventCallback<T> = (value: T) => void
 
