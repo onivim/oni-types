@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/onivim/oni-types/issues"
   },
-  "homepage": "http://onivim.io"
+  "homepage": "http://onivim.io",
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "rxjs": "^5.5.0"
+  }
 }
