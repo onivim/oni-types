@@ -1,8 +1,9 @@
 {
   "name": "oni-types",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Shared types and interfaces used across Oni",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
