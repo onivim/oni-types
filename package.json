@@ -18,7 +18,9 @@
   },
   "homepage": "http://onivim.io",
   "devDependencies": {
-    "@types/node": "^8.0.53",
-    "rxjs": "^5.5.0"
+    "@types/node": "^8.0.53"
+  },
+  "dependencies": {
+    "rxjs": "^6.1.0"
   }
 }
