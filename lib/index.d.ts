@@ -1,4 +1,4 @@
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import "rxjs/add/operator/auditTime";
 import "rxjs/add/operator/combineLatest";
 import "rxjs/add/operator/debounceTime";
