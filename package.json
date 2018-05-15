@@ -1,6 +1,6 @@
 {
   "name": "oni-types",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Shared types and interfaces used across Oni",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
