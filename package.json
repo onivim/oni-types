@@ -1,6 +1,6 @@
 {
   "name": "oni-types",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Shared types and interfaces used across Oni",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -25,7 +25,5 @@
     "@types/node": "^8.0.53",
     "typescript": "^2.8.3"
   },
-  "dependencies": {
-    "rxjs": "5.5.10"
-  }
+  "dependencies": {}
 }
