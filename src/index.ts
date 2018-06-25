@@ -18,13 +18,20 @@ export interface IEvent<T> {
     subscribe(callback: EventCallback<T>): IDisposable
 }
 
+const eventsCache: { [k:string]: EventEmitter} = {};
+
 export class Event<T> implements IEvent<T> {
 
     private _name: string
-    private _eventObject: EventEmitter = new EventEmitter()
+    private _eventObject: EventEmitter
 
-    constructor(name?: string) {
-        this._name = name || "default_event"
+    constructor(name: string) {
+        if (!(name in eventsCache)) {
+            eventsCache[name] = new EventEmitter();
+            eventsCache[name].setMaxListeners(100);
+        }
+        this._eventObject = eventsCache[name];
+        this._name = name;
     }
 
     public subscribe(callback: EventCallback<T>): IDisposable {
