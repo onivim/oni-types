@@ -18,7 +18,7 @@ export interface IEvent<T> {
     subscribe(callback: EventCallback<T>): IDisposable
 }
 
-const eventsCache: { [k:string]: EventEmitter} = {};
+const eventsCache = new Map<string, EventEmitter>()
 
 export class Event<T> implements IEvent<T> {
 
@@ -26,17 +26,18 @@ export class Event<T> implements IEvent<T> {
     private _eventObject: EventEmitter
 
     constructor(name: string) {
-        if (!(name in eventsCache)) {
-            eventsCache[name] = new EventEmitter();
-            eventsCache[name].setMaxListeners(100);
+        this._name = name
+        if (!eventsCache.has(name)) {
+            let emitter = new EventEmitter()
+            emitter.setMaxListeners(100)
+            eventsCache.set(name, emitter)
         }
-        this._eventObject = eventsCache[name];
-        this._name = name;
+        this._eventObject = eventsCache.get(name)!
     }
 
     public subscribe(callback: EventCallback<T>): IDisposable {
         this._eventObject.addListener(this._name, callback)
-
+        
         const dispose = () => {
             this._eventObject.removeListener(this._name, callback)
         }
